@@ -19,25 +19,29 @@ function getHumanChoice() {
 
 // console.log(getHumanChoice());
 
-const humanScore = 0;
-const computerScore = 0;
+function playGame() {
+  let humanScore = 0;
+  let computerScore = 0;
+  function playRound(humanChoice, computerChoice) {
+    humanChoice = humanChoice.toLowerCase();
 
-function playRound(humanChoice, computerChoice) {
-  humanChoice = humanChoice.toLowerCase();
-
-  // Cek pemenang
-  if (humanChoice === computerChoice) {
-    console.log(`Seri!`);
-  } else if ((humanChoice === `rock` && computerChoice === `scissors`) || (humanChoice === `paper` && computerChoice === `rock`) || (humanChoice === `scissors` && computerChoice === `paper`)) {
-    console.log(`You win! ${humanChoice} beats ${computerChoice}`);
-    humanScore++;
-  } else {
-    console.log(`You lose! ${computerChoice} beats ${humanChoice}`);
+    // Cek pemenang
+    if (humanChoice === computerChoice) {
+      console.log(`Seri!`);
+    } else if ((humanChoice === `rock` && computerChoice === `scissors`) || (humanChoice === `paper` && computerChoice === `rock`) || (humanChoice === `scissors` && computerChoice === `paper`)) {
+      console.log(`You win! ${humanChoice} beats ${computerChoice}`);
+      humanScore++;
+    } else {
+      console.log(`You lose! ${computerChoice} beats ${humanChoice}`);
+    }
+    computerScore++;
   }
-  computerScore++;
+
+  for (let i = 0; i < 5; i++) {
+    const computerSelection = getComputerChoice();
+    const humanSelection = getHumanChoice();
+    playRound(humanSelection, computerSelection);
+  }
 }
 
-const humanSelection = getHumanChoice();
-const computerSelection = getComputerChoice();
-
-playRound(humanSelection, computerSelection);
+playGame();
