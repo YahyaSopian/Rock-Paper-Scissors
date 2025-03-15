@@ -10,15 +10,6 @@ function getComputerChoice() {
   }
 }
 
-// console.log(getComputerChoice());
-
-function getHumanChoice() {
-  const userInput = prompt(`Masukkan pilihan Anda: "rock", "paper", atau "scissors"`);
-  return userInput;
-}
-
-// console.log(getHumanChoice());
-
 function playGame() {
   let humanScore = 0;
   let computerScore = 0;
@@ -35,12 +26,6 @@ function playGame() {
       console.log(`You lose! ${computerChoice} beats ${humanChoice}`);
     }
     computerScore++;
-  }
-
-  for (let i = 0; i < 5; i++) {
-    const computerSelection = getComputerChoice();
-    const humanSelection = getHumanChoice();
-    playRound(humanSelection, computerSelection);
   }
 }
 
